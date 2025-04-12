@@ -12,4 +12,9 @@ class TravelRequestRepository
     {
         return $this->model->create($data);
     }
+
+    public function update($id, $data): bool
+    {
+        return $this->model->whereId($id)->update($data);
+    }
 }

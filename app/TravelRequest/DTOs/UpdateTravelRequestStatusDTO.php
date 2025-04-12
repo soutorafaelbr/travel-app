@@ -1,0 +1,30 @@
+<?php
+
+namespace App\TravelRequest\DTOs;
+
+use App\Http\Requests\UpdateTravelRequestStatusRequest;
+use Carbon\Carbon;
+
+class UpdateTravelRequestStatusDTO
+{
+    public function __construct(
+        public readonly int $id,
+        public readonly string $status,
+    ) {}
+
+    public static function fromRequest(UpdateTravelRequestStatusRequest $request): self
+    {
+        return new self(
+            id: $request->route('id'),
+            status: $request->validated('status'),
+        );
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id'              => $this->id,
+            'status'          => $this->status,
+        ];
+    }
+}
