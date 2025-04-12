@@ -13,20 +13,18 @@ class GetTravelRequestTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->actingAs(User::factory()->create());
+        $this->actingAs($loggedUser = User::factory()->create());
+        $this->travelRequest = TravelRequest::factory()->create(['user_id' => $loggedUser->id]);
     }
 
     public function test_responds_with_http_ok(): void
     {
-        TravelRequest::factory()->create();
         $this->get(route('travel-request.get'))->assertOk();
     }
 
     public function test_responds_with_travel_requests(): void
     {
-        $tr = TravelRequest::factory()->create();
-
         $this->getJson(route('travel-request.get'))
-            ->assertJsonFragment($tr->toArray());
+            ->assertJsonFragment($this->travelRequest->toArray());
     }
 }
