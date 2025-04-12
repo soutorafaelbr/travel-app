@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\TravelRequest\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Enum;
 
 class StoreTravelRequest extends FormRequest
 {
@@ -22,7 +22,7 @@ class StoreTravelRequest extends FormRequest
             'return_date' => 'required|date|after:departure_date',
             'status' => [
                 'required',
-                Rule::in(Status::values())
+                new Enum(Status::class)
             ],
         ];
     }
