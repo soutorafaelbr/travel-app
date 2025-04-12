@@ -2,6 +2,7 @@ services:
     app:
         image: php:8.2-fpm
         container_name: laravel-app
+        user: "${UID:-1000}:${GID:-1000}"
         build:
             context: .
             dockerfile: Dockerfile
