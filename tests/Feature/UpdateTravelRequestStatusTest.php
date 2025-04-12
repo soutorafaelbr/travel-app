@@ -3,11 +3,20 @@
 namespace Tests\Feature;
 
 use App\Models\TravelRequest;
+use App\Models\User;
 use App\TravelRequest\Enums\Status;
+use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
+#[Group('update')]
 class UpdateTravelRequestStatusTest extends TestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->actingAs(User::factory()->create());
+    }
+
     public function test_updates_status(): void
     {
         $travelRequest = TravelRequest::factory()->create();

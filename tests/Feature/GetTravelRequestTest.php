@@ -3,10 +3,19 @@
 namespace Tests\Feature;
 
 use App\Models\TravelRequest;
+use App\Models\User;
+use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
+#[Group('get')]
 class GetTravelRequestTest extends TestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->actingAs(User::factory()->create());
+    }
+
     public function test_responds_with_http_ok(): void
     {
         TravelRequest::factory()->create();
