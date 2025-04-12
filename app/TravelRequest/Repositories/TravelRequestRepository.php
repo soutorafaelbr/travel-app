@@ -17,4 +17,9 @@ class TravelRequestRepository
     {
         return $this->model->whereId($id)->update($data);
     }
+
+    public function findOrFail(int $id): ?TravelRequest
+    {
+        return $this->model->findOrFail($id);
+    }
 }
