@@ -14,7 +14,7 @@ class UpdateTravelRequestStatusDTO
     public static function fromRequest(UpdateTravelRequestStatusRequest $request): self
     {
         return new self(
-            id: $request->route('id'),
+            id: $request->route('travelRequest')->id,
             status: $request->validated('status'),
         );
     }

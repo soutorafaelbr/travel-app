@@ -12,6 +12,7 @@ class TravelRequestResource extends JsonResource
         return [
             'data' => [
                 'id' => $this->id,
+                'user_id' => $this->user_id,
                 'applicant_name' => $this->applicant_name,
                 'destination' => $this->destination,
                 'status' => $this->status,

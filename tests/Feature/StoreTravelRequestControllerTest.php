@@ -13,39 +13,35 @@ class StoreTravelRequestControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->actingAs(User::factory()->create());
+        $this->actingAs($loggedUser = User::factory()->create());
+        $this->travelRequest = TravelRequest::factory()->make(['user_id' => $loggedUser->id]);
     }
 
     public function test_store_travel_request_responds_with_http_created_code()
     {
-        $request = TravelRequest::factory()->make();
-
-        $this->postJson(route('travel-request.store'), $request->toArray())
+        $this->postJson(route('travel-request.store'), $this->travelRequest->toArray())
             ->assertStatus(JsonResponse::HTTP_CREATED);
     }
 
     public function test_store_travel_request_responds_data()
     {
-        $request = TravelRequest::factory()->make();
-
-        $this->postJson(route('travel-request.store'), $request->toArray())
-            ->assertJsonFragment($request->toArray());
+        $this->postJson(route('travel-request.store'), $this->travelRequest->toArray())
+            ->assertJsonFragment($this->travelRequest->toArray());
     }
 
     public function test_store_travel_request()
     {
-        $request = TravelRequest::factory()->make();
-
-        $this->withoutExceptionHandling()->postJson(route('travel-request.store'), $request->toArray());
+        $this->postJson(route('travel-request.store'), $this->travelRequest->toArray());
 
         $this->assertDatabaseHas(
             TravelRequest::class,
            [
-               'applicant_name' => $request->applicant_name,
-               'status' => $request->status,
-               'departure_date' => $request->departure_date,
-               'return_date' => $request->return_date,
-               'destination' => $request->destination,
+               'user_id' => $this->travelRequest->user_id,
+               'applicant_name' => $this->travelRequest->applicant_name,
+               'status' => $this->travelRequest->status,
+               'departure_date' => $this->travelRequest->departure_date,
+               'return_date' => $this->travelRequest->return_date,
+               'destination' => $this->travelRequest->destination,
            ]
         );
     }

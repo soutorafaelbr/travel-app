@@ -12,8 +12,8 @@ class GetTravelRequestService
     {
     }
 
-    public function handle(): JsonResponse|ResourceCollection
+    public function handle(int $userId): JsonResponse|ResourceCollection
     {
-        return $this->repository->get()->toResourceCollection();
+        return $this->repository->getByUserId($userId)->toResourceCollection();
     }
 }

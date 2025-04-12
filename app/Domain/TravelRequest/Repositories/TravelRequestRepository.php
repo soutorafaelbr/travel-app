@@ -24,8 +24,8 @@ class TravelRequestRepository
         return $this->model->findOrFail($id);
     }
 
-    public function get(): Collection
+    public function getByUserId(int $userId): Collection
     {
-        return $this->model->get();
+        return $this->model->where('user_id', $userId)->get();
     }
 }

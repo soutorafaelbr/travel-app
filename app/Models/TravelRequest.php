@@ -12,6 +12,7 @@ class TravelRequest extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'applicant_name',
         'status',
         'departure_date',
@@ -20,8 +21,8 @@ class TravelRequest extends Model
     ];
 
     protected $casts = [
-        'departure_date' => 'datetime',
-        'return_date' => 'datetime',
+        'departure_date' => 'date',
+        'return_date' => 'date',
         'status' => Status::class,
     ];
 }

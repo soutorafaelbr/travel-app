@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Domain\TravelRequest\Enums\Status;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -13,6 +14,7 @@ class TravelRequestFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => fn () => User::factory()->create()->id,
             'applicant_name' => $this->faker->name(),
             'status' => Status::Requested->value,
             'destination' => $this->faker->city(),

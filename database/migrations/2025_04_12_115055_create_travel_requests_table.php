@@ -11,6 +11,7 @@ return new class extends Migration
     {
         Schema::create('travel_requests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->string('applicant_name');
             $table->enum('status', Status::values())->default(Status::Requested->value);
             $table->string('destination');
