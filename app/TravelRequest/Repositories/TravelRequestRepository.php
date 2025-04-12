@@ -3,6 +3,7 @@
 namespace App\TravelRequest\Repositories;
 
 use App\Models\TravelRequest;
+use Illuminate\Database\Eloquent\Collection;
 
 class TravelRequestRepository
 {
@@ -21,5 +22,10 @@ class TravelRequestRepository
     public function findOrFail(int $id): ?TravelRequest
     {
         return $this->model->findOrFail($id);
+    }
+
+    public function get(): Collection
+    {
+        return $this->model->get();
     }
 }
