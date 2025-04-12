@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\TravelRequest\Services\GetTravelRequestService;
+use App\Domain\TravelRequest\Services\GetTravelRequestService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
