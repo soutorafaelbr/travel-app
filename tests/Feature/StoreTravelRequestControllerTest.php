@@ -15,6 +15,14 @@ class StoreTravelRequestControllerTest extends TestCase
             ->assertStatus(JsonResponse::HTTP_CREATED);
     }
 
+    public function test_store_travel_request_responds_data()
+    {
+        $request = TravelRequest::factory()->make();
+
+        $this->postJson(route('travel-request.store'), $request->toArray())
+            ->assertJsonFragment($request->toArray());
+    }
+
     public function test_store_travel_request()
     {
         $request = TravelRequest::factory()->make();

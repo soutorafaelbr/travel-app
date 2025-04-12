@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\TravelRequest\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,5 +22,6 @@ class TravelRequest extends Model
     protected $casts = [
         'departure_date' => 'datetime',
         'return_date' => 'datetime',
+        'status' => Status::class,
     ];
 }
