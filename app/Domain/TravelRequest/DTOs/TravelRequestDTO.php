@@ -1,6 +1,6 @@
 <?php
 
-namespace App\TravelRequest\DTOs;
+namespace App\Domain\TravelRequest\DTOs;
 
 use App\Http\Requests\StoreTravelRequest;
 use Carbon\Carbon;

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\TravelRequest\DTOs;
+namespace App\Domain\TravelRequest\DTOs;
 
 use App\Http\Requests\UpdateTravelRequestStatusRequest;
-use Carbon\Carbon;
 
 class UpdateTravelRequestStatusDTO
 {

@@ -2,8 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
-use App\TravelRequest\Enums\Status;
+use App\Domain\TravelRequest\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\TravelRequest\Services\ShowTravelRequestService;
+use App\Domain\TravelRequest\Services\ShowTravelRequestService;
 use Illuminate\Http\JsonResponse;
 
 class ShowTravelRequestController extends Controller

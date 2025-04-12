@@ -1,9 +1,9 @@
 <?php
 
-namespace App\TravelRequest\Services;
+namespace App\Domain\TravelRequest\Services;
 
-use App\TravelRequest\DTOs\UpdateTravelRequestStatusDTO;
-use App\TravelRequest\Repositories\TravelRequestRepository;
+use App\Domain\TravelRequest\DTOs\UpdateTravelRequestStatusDTO;
+use App\Domain\TravelRequest\Repositories\TravelRequestRepository;
 
 class UpdateTravelRequestStatusService
 {

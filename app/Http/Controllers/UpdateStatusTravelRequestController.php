@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\TravelRequest\DTOs\UpdateTravelRequestStatusDTO;
+use App\Domain\TravelRequest\Services\UpdateTravelRequestStatusService;
 use App\Http\Requests\UpdateTravelRequestStatusRequest;
-use App\TravelRequest\DTOs\UpdateTravelRequestStatusDTO;
-use App\TravelRequest\Services\UpdateTravelRequestStatusService;
 use Illuminate\Http\JsonResponse;
 
 class UpdateStatusTravelRequestController extends Controller

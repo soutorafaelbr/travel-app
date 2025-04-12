@@ -1,6 +1,6 @@
 <?php
 
-namespace App\TravelRequest\Enums;
+namespace App\Domain\TravelRequest\Enums;
 
 enum Status: string
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\TravelRequest\Services;
+namespace App\Domain\TravelRequest\Services;
 
-use App\TravelRequest\Repositories\TravelRequestRepository;
+use App\Domain\TravelRequest\Repositories\TravelRequestRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

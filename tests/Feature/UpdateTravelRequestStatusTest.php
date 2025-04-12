@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Domain\TravelRequest\Enums\Status;
 use App\Models\TravelRequest;
 use App\Models\User;
-use App\TravelRequest\Enums\Status;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 

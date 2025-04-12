@@ -1,10 +1,10 @@
 <?php
 
-namespace App\TravelRequest\Services;
+namespace App\Domain\TravelRequest\Services;
 
+use App\Domain\TravelRequest\DTOs\TravelRequestDTO;
+use App\Domain\TravelRequest\Repositories\TravelRequestRepository;
 use App\Http\Resources\TravelRequestResource;
-use App\TravelRequest\DTOs\TravelRequestDTO;
-use App\TravelRequest\Repositories\TravelRequestRepository;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class StoreTravelRequestService

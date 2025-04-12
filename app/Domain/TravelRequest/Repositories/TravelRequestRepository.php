@@ -1,6 +1,6 @@
 <?php
 
-namespace App\TravelRequest\Repositories;
+namespace App\Domain\TravelRequest\Repositories;
 
 use App\Models\TravelRequest;
 use Illuminate\Database\Eloquent\Collection;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\TravelRequest\Enums\Status;
+use App\Domain\TravelRequest\Enums\Status;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 

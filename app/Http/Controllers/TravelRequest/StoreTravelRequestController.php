@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\TravelRequest;
 
+use App\Domain\TravelRequest\DTOs\TravelRequestDTO;
+use App\Domain\TravelRequest\Services\StoreTravelRequestService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTravelRequest;
-use App\TravelRequest\DTOs\TravelRequestDTO;
-use App\TravelRequest\Services\StoreTravelRequestService;
 use Illuminate\Http\JsonResponse;
 
 class StoreTravelRequestController extends Controller
