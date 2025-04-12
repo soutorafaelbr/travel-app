@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\TravelRequest\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +11,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TravelRequestFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'applicant_name' => $this->faker->name(),
+            'status' => Status::Requested->value,
+            'destination' => $this->faker->city(),
+            'departure_date' => now()->addDay(),
+            'return_date' => now()->addWeek(),
         ];
     }
 }
