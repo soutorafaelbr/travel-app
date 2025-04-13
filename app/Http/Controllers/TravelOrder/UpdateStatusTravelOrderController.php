@@ -12,8 +12,8 @@ use Illuminate\Http\JsonResponse;
 class UpdateStatusTravelOrderController extends Controller
 {
     public function __invoke(
-        UpdateTravelOrderStatusRequest   $request,
-        TravelOrder                      $travelOrder,
+        UpdateTravelOrderStatusRequest $request,
+        TravelOrder $travelOrder,
         UpdateTravelOrderStatusService $service
     ): JsonResponse {
         $service->handle(UpdateTravelOrderStatusDTO::fromRequest($request));

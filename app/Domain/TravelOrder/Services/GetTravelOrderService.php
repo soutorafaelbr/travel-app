@@ -2,8 +2,8 @@
 
 namespace App\Domain\TravelOrder\Services;
 
-use App\Domain\TravelOrder\Repositories\TravelOrderRepository;
 use App\Domain\TravelOrder\DTOs\GetTravelOrderDTO;
+use App\Domain\TravelOrder\Repositories\TravelOrderRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

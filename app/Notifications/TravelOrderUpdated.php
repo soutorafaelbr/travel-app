@@ -15,7 +15,7 @@ class TravelOrderUpdated extends Notification implements ShouldQueue
     use Queueable, SerializesModels;
 
     public function __construct(
-        private readonly TravelOrder         $travelOrder,
+        private readonly TravelOrder $travelOrder,
         private readonly TransitionStatusDTO $transitionStatusDTO
     ) {}
 
