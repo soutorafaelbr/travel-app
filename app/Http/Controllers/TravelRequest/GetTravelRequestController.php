@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\TravelRequest;
 
+use App\Domain\TravelRequest\DTOs\GetTravelRequestDTO;
 use App\Domain\TravelRequest\Services\GetTravelRequestService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GetTravelRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class GetTravelRequestController extends Controller
 {
-    public function __invoke(Request $request, GetTravelRequestService $service): JsonResponse
+    public function __invoke(GetTravelRequest $request, GetTravelRequestService $service): JsonResponse
     {
-        $resourceCollection = $service->handle($request->user()->id);
+        $resourceCollection = $service->handle(GetTravelRequestDTO::fromRequest($request));
 
         return response()->json($resourceCollection);
     }

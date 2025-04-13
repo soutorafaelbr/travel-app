@@ -17,7 +17,7 @@ class TravelRequestFactory extends Factory
             'user_id' => fn () => User::factory()->create()->id,
             'applicant_name' => $this->faker->name(),
             'status' => Status::Requested->value,
-            'destination' => $this->faker->city(),
+            'destination' => 'São Paulo',
             'departure_date' => now()->addDay(),
             'return_date' => now()->addWeek(),
         ];
