@@ -5,16 +5,19 @@ namespace Tests\Feature;
 use App\Domain\TravelRequest\Enums\Status;
 use App\Models\TravelRequest;
 use App\Models\User;
+use Illuminate\Validation\ValidationException;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
 
 #[Group('update')]
 class UpdateTravelRequestStatusTest extends TestCase
 {
+    private User $loggedUser;
+
     public function setUp(): void
     {
         parent::setUp();
-        $this->actingAs(User::factory()->create());
+        $this->actingAs($this->loggedUser = User::factory()->create());
     }
 
     public function test_updates_status(): void
@@ -50,5 +53,41 @@ class UpdateTravelRequestStatusTest extends TestCase
             route('travel-request.update-status', $travelRequest->id),
             ['status' => 'invalid-status']
         )->assertJsonValidationErrors('status');
+    }
+
+    public function test_approved_travel_request_cannot_be_canceled()
+    {
+        $this->expectException(ValidationException::class);
+        $travelRequest = TravelRequest::factory()->create(['status' => Status::Approved->value]);
+
+        $this->withoutExceptionHandling()
+            ->patchJson(
+                route('travel-request.update-status', $travelRequest->id),
+                ['status' => Status::Canceled->value]
+            );
+    }
+
+    public function test_canceled_travel_request_cannot_be_approved()
+    {
+        $this->expectException(ValidationException::class);
+        $travelRequest = TravelRequest::factory()->create(['status' => Status::Canceled->value]);
+
+        $this->withoutExceptionHandling()
+            ->patchJson(
+                route('travel-request.update-status', $travelRequest->id),
+                ['status' => Status::Approved->value]
+            );
+    }
+
+    public function test_requested_travel_request_cannot_be_requested()
+    {
+        $this->expectException(ValidationException::class);
+        $travelRequest = TravelRequest::factory()->create(['status' => Status::Requested->value]);
+
+        $this->withoutExceptionHandling()
+            ->patchJson(
+                route('travel-request.update-status', $travelRequest->id),
+                ['status' => Status::Requested->value]
+            );
     }
 }

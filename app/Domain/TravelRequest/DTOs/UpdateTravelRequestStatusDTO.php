@@ -2,20 +2,21 @@
 
 namespace App\Domain\TravelRequest\DTOs;
 
+use App\Domain\TravelRequest\Enums\Status;
 use App\Http\Requests\UpdateTravelRequestStatusRequest;
 
 class UpdateTravelRequestStatusDTO
 {
     public function __construct(
         public readonly int $id,
-        public readonly string $status,
+        public readonly Status $status,
     ) {}
 
     public static function fromRequest(UpdateTravelRequestStatusRequest $request): self
     {
         return new self(
             id: $request->route('travelRequest')->id,
-            status: $request->validated('status'),
+            status: Status::from($request->validated('status')),
         );
     }
 
