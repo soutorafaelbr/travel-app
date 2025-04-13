@@ -15,8 +15,7 @@ class UpdateStatusTravelRequestController extends Controller
         UpdateTravelRequestStatusRequest $request,
         TravelRequest $travelRequest,
         UpdateTravelRequestStatusService $service
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $service->handle(UpdateTravelRequestStatusDTO::fromRequest($request));
 
         return response()->json()->setStatusCode(JsonResponse::HTTP_NO_CONTENT);

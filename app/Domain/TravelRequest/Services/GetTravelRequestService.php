@@ -9,9 +9,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class GetTravelRequestService
 {
-    public function __construct(private readonly TravelRequestRepository $repository)
-    {
-    }
+    public function __construct(private readonly TravelRequestRepository $repository) {}
 
     public function handle(GetTravelRequestDTO $DTO): JsonResponse|ResourceCollection
     {

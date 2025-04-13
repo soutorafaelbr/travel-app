@@ -28,11 +28,11 @@ class GetTravelRequestDTO
     public function toArray(): array
     {
         return [
-            'id'              => $this->userId,
-            'status'          => $this->status,
-            'destination'     => $this->destination,
-            'from'            => $this->from,
-            'to'              => $this->to,
+            'id' => $this->userId,
+            'status' => $this->status,
+            'destination' => $this->destination,
+            'from' => $this->from,
+            'to' => $this->to,
         ];
     }
 }

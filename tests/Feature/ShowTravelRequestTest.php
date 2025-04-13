@@ -13,7 +13,7 @@ class ShowTravelRequestTest extends TestCase
 {
     protected TravelRequest $travelRequest;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->actingAs($loggedUser = User::factory()->create());
@@ -31,7 +31,7 @@ class ShowTravelRequestTest extends TestCase
             ->assertJsonFragment($this->travelRequest->toArray());
     }
 
-    public function test_throws_exception_when_TravelRequest_does_not_exists(): void
+    public function test_throws_exception_when_travel_request_does_not_exists(): void
     {
         $this->expectException(ModelNotFoundException::class);
 
@@ -39,7 +39,7 @@ class ShowTravelRequestTest extends TestCase
             ->getJson(route('travel-request.show', 12433546));
     }
 
-    public function test_responds_with_not_found_status_code_TravelRequest_does_not_exists(): void
+    public function test_responds_with_not_found_status_code_travel_request_does_not_exists(): void
     {
         $this->getJson(route('travel-request.show', 12433546))
             ->assertNotFound();

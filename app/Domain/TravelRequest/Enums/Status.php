@@ -17,9 +17,8 @@ enum Status: string
     {
         return match ($this) {
             self::Requested => in_array($newStatus, [self::Approved, self::Canceled]),
-            self::Approved  => false,
+            self::Approved => false,
             self::Canceled => false,
         };
     }
-
 }

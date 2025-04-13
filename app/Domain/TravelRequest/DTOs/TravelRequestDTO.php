@@ -31,12 +31,12 @@ class TravelRequestDTO
     public function toArray(): array
     {
         return [
-            'destination'     => $this->destination,
-            'departure_date'  => $this->departureDate->toDate(),
-            'return_date'     => $this->returnDate->toDate(),
-            'applicant_name'  => $this->applicantName,
-            'status'          => $this->status,
-            'user_id'         => $this->userId,
+            'destination' => $this->destination,
+            'departure_date' => $this->departureDate->toDate(),
+            'return_date' => $this->returnDate->toDate(),
+            'applicant_name' => $this->applicantName,
+            'status' => $this->status,
+            'user_id' => $this->userId,
         ];
     }
 }

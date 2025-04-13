@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Feature;
 
 use App\Models\TravelRequest;
@@ -10,7 +11,7 @@ use Tests\TestCase;
 #[Group('store')]
 class StoreTravelRequestControllerTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->actingAs($loggedUser = User::factory()->create());
@@ -35,14 +36,14 @@ class StoreTravelRequestControllerTest extends TestCase
 
         $this->assertDatabaseHas(
             TravelRequest::class,
-           [
-               'user_id' => $this->travelRequest->user_id,
-               'applicant_name' => $this->travelRequest->applicant_name,
-               'status' => $this->travelRequest->status,
-               'departure_date' => $this->travelRequest->departure_date,
-               'return_date' => $this->travelRequest->return_date,
-               'destination' => $this->travelRequest->destination,
-           ]
+            [
+                'user_id' => $this->travelRequest->user_id,
+                'applicant_name' => $this->travelRequest->applicant_name,
+                'status' => $this->travelRequest->status,
+                'departure_date' => $this->travelRequest->departure_date,
+                'return_date' => $this->travelRequest->return_date,
+                'destination' => $this->travelRequest->destination,
+            ]
         );
     }
 
@@ -107,7 +108,7 @@ class StoreTravelRequestControllerTest extends TestCase
             'destination' => 'Paris',
             'departure_date' => '2025-06-10',
             'return_date' => '2025-06-05',
-            'status' => 'invalid-status'
+            'status' => 'invalid-status',
         ]);
 
         $response->assertStatus(JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
@@ -122,7 +123,7 @@ class StoreTravelRequestControllerTest extends TestCase
             'destination' => 'Paris',
             'departure_date' => '2025-06-10',
             'return_date' => '2025-06-05',
-            'status' => 'invalid-status'
+            'status' => 'invalid-status',
         ]);
 
         $response->assertStatus(JsonResponse::HTTP_UNPROCESSABLE_ENTITY)

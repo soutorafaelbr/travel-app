@@ -11,7 +11,7 @@ use Tests\TestCase;
 #[Group('get')]
 class GetTravelRequestTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->actingAs($loggedUser = User::factory()->create());
@@ -103,5 +103,4 @@ class GetTravelRequestTest extends TestCase
         $this->getJson(route('travel-request.get', ['from' => $from, 'to' => $to]))
             ->assertExactJson([]);
     }
-
 }

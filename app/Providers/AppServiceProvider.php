@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\TravelRequest;
-use App\Models\User;
 use App\Policies\TravelRequestPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;

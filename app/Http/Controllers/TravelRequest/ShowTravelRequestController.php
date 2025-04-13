@@ -12,6 +12,7 @@ class ShowTravelRequestController extends Controller
     public function __invoke(ShowTravelRequestService $service, TravelRequest $travelRequest): JsonResponse
     {
         $resource = $service->handle($travelRequest->id);
+
         return response()->json($resource)->setStatusCode(JsonResponse::HTTP_OK);
     }
 }

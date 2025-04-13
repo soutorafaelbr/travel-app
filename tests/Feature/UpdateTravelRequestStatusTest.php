@@ -16,7 +16,7 @@ class UpdateTravelRequestStatusTest extends TestCase
 {
     private User $loggedUser;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->actingAs($this->loggedUser = User::factory()->create());
@@ -100,9 +100,9 @@ class UpdateTravelRequestStatusTest extends TestCase
         $travelRequest = TravelRequest::factory()->create(['status' => Status::Requested->value]);
 
         $this->patchJson(
-                route('travel-request.update-status', $travelRequest->id),
-                ['status' => Status::Approved->value]
-            );
+            route('travel-request.update-status', $travelRequest->id),
+            ['status' => Status::Approved->value]
+        );
 
         Notification::assertSentTo($travelRequest->user, TravelRequestUpdated::class);
     }

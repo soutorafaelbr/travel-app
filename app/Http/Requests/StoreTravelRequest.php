@@ -22,7 +22,7 @@ class StoreTravelRequest extends FormRequest
             'return_date' => 'required|date|after:departure_date',
             'status' => [
                 'required',
-                new Enum(Status::class)
+                new Enum(Status::class),
             ],
         ];
     }

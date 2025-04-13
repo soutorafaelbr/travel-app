@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Authentication;
 
-
 use App\Domain\Authentication\Services\LogoutService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

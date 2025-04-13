@@ -4,14 +4,11 @@ namespace App\Domain\Authentication\Services;
 
 use App\Domain\Authentication\Exceptions\AuthenticationFailedException;
 use App\Domain\Authentication\Repositories\UserRepository;
-use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class AuthenticateService
 {
-    public function __construct(private readonly UserRepository $repository)
-    {
-    }
+    public function __construct(private readonly UserRepository $repository) {}
 
     public function handle($email, $password): string
     {

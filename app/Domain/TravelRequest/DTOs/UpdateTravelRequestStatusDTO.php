@@ -23,8 +23,8 @@ class UpdateTravelRequestStatusDTO
     public function toArray(): array
     {
         return [
-            'id'              => $this->id,
-            'status'          => $this->status,
+            'id' => $this->id,
+            'status' => $this->status,
         ];
     }
 }
