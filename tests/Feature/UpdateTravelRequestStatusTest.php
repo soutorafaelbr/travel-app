@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Domain\TravelRequest\Enums\Status;
 use App\Models\TravelRequest;
 use App\Models\User;
+use App\Notifications\TravelRequestUpdated;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\ValidationException;
 use PHPUnit\Framework\Attributes\Group;
 use Tests\TestCase;
@@ -89,5 +91,19 @@ class UpdateTravelRequestStatusTest extends TestCase
                 route('travel-request.update-status', $travelRequest->id),
                 ['status' => Status::Requested->value]
             );
+    }
+
+    public function test_notify_user()
+    {
+        Notification::fake();
+
+        $travelRequest = TravelRequest::factory()->create(['status' => Status::Requested->value]);
+
+        $this->patchJson(
+                route('travel-request.update-status', $travelRequest->id),
+                ['status' => Status::Approved->value]
+            );
+
+        Notification::assertSentTo($travelRequest->user, TravelRequestUpdated::class);
     }
 }
