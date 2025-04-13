@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\TravelRequest;
-use App\Policies\TravelRequestPolicy;
+use App\Models\TravelOrder;
+use App\Policies\TravelOrderPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::policy(TravelRequest::class, TravelRequestPolicy::class);
+        Gate::policy(TravelOrder::class, TravelOrderPolicy::class);
     }
 }
